@@ -1,23 +1,35 @@
 import PropTypes from 'prop-types';
+import { StatisticsItem } from 'components/StatisticsItem/StatisticsItem';
+import { Box } from 'components/Box/Box';
+import { StatTitle } from './Statistics.styled';
 
 export const Statistics = ({ stats, title }) => {
   return (
-    <section>
-      {title && <h2>{title}</h2>}
+    <Box
+      as="section"
+      bg="backgroundSecondary"
+      width="50%"
+      mb="40px"
+      borderRadius="normal"
+    >
+      {title && <StatTitle>{title}</StatTitle>}
 
-      <ul>
+      <Box
+        as="ul"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        width="100%"
+      >
         {stats.map(stat => (
-          <li key={stat.id}>
-            <span>{stat.label}</span>
-            <span>{stat.percentage}%</span>
-          </li>
+          <StatisticsItem stat={stat} key={stat.id} />
         ))}
-      </ul>
-    </section>
+      </Box>
+    </Box>
   );
 };
 
-Statistics.prototype = {
+Statistics.propTypes = {
   stats: PropTypes.array.isRequired,
   title: PropTypes.string,
 };
