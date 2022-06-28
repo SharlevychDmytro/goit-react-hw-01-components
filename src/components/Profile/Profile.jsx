@@ -10,9 +10,7 @@ import {
   StatsValue,
 } from 'components/Profile/Profile.styled';
 
-export const Profile = ({
-  user: { avatar, location, username, tag, stats },
-}) => {
+export const Profile = ({ avatar, location, username, tag, stats }) => {
   return (
     <Box
       display="flex"
@@ -63,5 +61,9 @@ export const Profile = ({
   );
 };
 Profile.propTypes = {
-  user: PropTypes.object.isRequired,
+  avatar: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  stats: PropTypes.object.isRequired,
 };

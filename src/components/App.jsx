@@ -18,7 +18,13 @@ export const App = () => {
       width="100%"
       bg="background"
     >
-      <Profile user={user} />
+      <Profile
+        avatar={user.avatar}
+        location={user.location}
+        username={user.username}
+        tag={user.tag}
+        stats={user.stats}
+      />
       <Statistics stats={data} title="UPLOAD STATS" />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
